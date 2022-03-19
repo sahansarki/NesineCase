@@ -1,5 +1,6 @@
 package com.example.nesinecase.data.remote
 
+import com.example.nesinecase.util.Constants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -10,7 +11,7 @@ abstract class RetrofitClient {
         fun getInstance(): Retrofit {
             return INSTANCE ?: synchronized(this) {
                 val instance = Retrofit.Builder()
-                    .baseUrl("https://jsonplaceholder.typicode.com/")
+                    .baseUrl(Constants.POST_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
 
