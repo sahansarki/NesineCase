@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.nesinecase.ui.mainScreen.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_detailBottomSheetFragment"
+            app:destination="@id/detailBottomSheetFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/detailBottomSheetFragment"
+        android:name="com.example.nesinecase.ui.detailScreen.DetailBottomSheetFragment"
+        android:label="DetailBottomSheetFragment" >
+        <argument
+            android:name="post"
+            app:argType="com.example.nesinecase.data.model.Post" />
+    </dialog>
+</navigation>
