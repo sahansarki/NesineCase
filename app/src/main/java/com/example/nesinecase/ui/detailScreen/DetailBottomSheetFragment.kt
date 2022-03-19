@@ -1,4 +1,6 @@
 package com.example.nesinecase.ui.detailScreen
 
-class DetailBottomSheetFragment {
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+
+class DetailBottomSheetFragment: BottomSheetDialogFragment() {
 }
