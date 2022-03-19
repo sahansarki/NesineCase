@@ -15,11 +15,11 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailBottomSheetFragment(
+    private val post: Post,
     private val updateCallback: (post: Post) -> Unit
 ) : BottomSheetDialogFragment() {
 
     private lateinit var bottomSheetBinding: FragmentDetailBottomSheetBinding
-    private lateinit var post: Post
 
     companion object {
         const val TAG = "DetailBottomSheetFragment"
@@ -42,8 +42,6 @@ class DetailBottomSheetFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val safeArgs: DetailBottomSheetFragmentArgs by navArgs()
-        post = safeArgs.post
         bottomSheetBinding.post = post
         bottomSheetBinding.postImage.loadImage(post.url)
 
@@ -51,6 +49,7 @@ class DetailBottomSheetFragment(
             post.title = bottomSheetBinding.postTitle.text.toString()
             post.body = bottomSheetBinding.postBody.text.toString()
             updateCallback(post)
+            this@DetailBottomSheetFragment.dismiss()
         }
 
     }
