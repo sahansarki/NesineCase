@@ -13,6 +13,7 @@ import com.example.nesinecase.extension.dismissProgress
 import com.example.nesinecase.extension.showProgress
 import com.example.nesinecase.ui.adapter.PostsRecyclerAdapter
 import com.example.nesinecase.ui.adapter.base.BaseFragment
+import com.example.nesinecase.ui.fragment.detailScreen.DetailBottomSheetFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,26 +22,28 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     private lateinit var postsAdapter: PostsRecyclerAdapter
     private val mainFragmentViewModel: MainFragmentViewModel by viewModels()
 
-    override fun getLayoutResId(): Int = R.layout.activity_main
+    override fun getLayoutResId(): Int = R.layout.fragment_main
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         postsAdapter = PostsRecyclerAdapter{
+            val bottomSheet = DetailBottomSheetFragment(it){
+                val postList = postsAdapter.differ.currentList
 
-        /*
-            val postList = postsAdapter.differ.currentList
+                postList.forEach { post ->
+                    if(post.id == it.id){
+                        post.title = it.title
+                        post.body = it.body
+                    }
 
-            postList.forEach { post ->
-                if(post.id == it.id){
-                    post.title = it.title
-                    post.body = it.body
                 }
-
+                postsAdapter.differ.submitList(postList)
             }
-            postsAdapter.differ.submitList(postList)
+            bottomSheet.show(
+                parentFragmentManager, DetailBottomSheetFragment.TAG
+            )
 
-             */
         }
 
         val mDividerItemDecoration =
