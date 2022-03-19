@@ -10,6 +10,12 @@ class PostRepositoryImpl @Inject constructor(
 ): PostRepository {
 
     override suspend fun getAllPosts(): PostResponse {
-        return postAPI.getAllPosts()
+        val postReponse = try {
+            postAPI.getAllPosts()
+        } catch(e: Exception) {
+            println("Exceptionn: ${e.localizedMessage}")
+            PostResponse()
+        }
+        return postReponse
     }
 }
