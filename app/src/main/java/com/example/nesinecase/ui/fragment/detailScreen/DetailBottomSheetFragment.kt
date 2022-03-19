@@ -1,4 +1,4 @@
-package com.example.nesinecase.ui.detailScreen
+package com.example.nesinecase.ui.fragment.detailScreen
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
