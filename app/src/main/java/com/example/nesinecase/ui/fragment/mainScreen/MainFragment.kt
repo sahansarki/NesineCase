@@ -26,7 +26,22 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        postsAdapter = PostsRecyclerAdapter()
+        postsAdapter = PostsRecyclerAdapter{
+
+        /*
+            val postList = postsAdapter.differ.currentList
+
+            postList.forEach { post ->
+                if(post.id == it.id){
+                    post.title = it.title
+                    post.body = it.body
+                }
+
+            }
+            postsAdapter.differ.submitList(postList)
+
+             */
+        }
 
         val mDividerItemDecoration =
             DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)

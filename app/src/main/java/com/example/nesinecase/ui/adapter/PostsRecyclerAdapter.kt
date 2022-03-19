@@ -5,10 +5,11 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nesinecase.data.model.Post
+import com.example.nesinecase.extension.urlMaker
 import com.example.nesinecase.ui.adapter.viewholder.PostViewHolder
 
 class PostsRecyclerAdapter(
-
+    private val clickedItem: (post: Post) -> Unit
 ) : RecyclerView.Adapter<PostViewHolder>() {
     val differ = AsyncListDiffer(this, DIFF_CALLBACK)
 
@@ -21,7 +22,8 @@ class PostsRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.bind(differ.currentList[position], position)
+        differ.currentList[position].url = urlMaker(position)
+        holder.bind(differ.currentList[position], position, clickedItem)
     }
 
     companion object {

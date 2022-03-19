@@ -12,10 +12,14 @@ class PostViewHolder(
     private val binding: ItemPostRowBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(post: Post, itemPosition: Int) {
+    fun bind(post: Post, itemPosition: Int, clickedItem: (post: Post) -> Unit) {
         binding.post = post
         val uriString = urlMaker(itemPosition)
+
         binding.postImage.loadImage(uriString)
+        binding.postCard.setOnClickListener {
+            clickedItem(post)
+        }
     }
 
     companion object {
