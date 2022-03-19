@@ -13,7 +13,9 @@ import com.example.nesinecase.extension.dismissProgress
 import com.example.nesinecase.extension.showProgress
 import com.example.nesinecase.ui.adapter.PostsRecyclerAdapter
 import com.example.nesinecase.ui.adapter.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
     private lateinit var postsAdapter: PostsRecyclerAdapter

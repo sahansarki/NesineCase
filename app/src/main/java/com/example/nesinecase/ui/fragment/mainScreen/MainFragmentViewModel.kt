@@ -4,14 +4,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.nesinecase.data.response.PostResponse
+import com.example.nesinecase.di.PostRepositoryImpl
 import com.example.nesinecase.repository.PostRepository
 import com.example.nesinecase.ui.adapter.base.BaseViewModel
 import com.example.nesinecase.util.DataHolder
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainFragmentViewModel(
-    private val postRepository: PostRepository
+@HiltViewModel
+class MainFragmentViewModel @Inject constructor(
+    @PostRepositoryImpl private val postRepository: PostRepository
 ): BaseViewModel() {
 
     private val mutablePostList =  MutableLiveData<DataHolder<PostResponse>>()
