@@ -34,7 +34,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
         with(fragmentDataBinding.postsRc) {
             layoutManager = LinearLayoutManager(
                 requireContext(),
-                LinearLayoutManager.HORIZONTAL,
+                LinearLayoutManager.VERTICAL,
                 false
             )
             adapter = postsAdapter
@@ -50,7 +50,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
             when(it.status){
                 RepositoryStatus.OK -> {
                     requireContext().dismissProgress()
-                    postsAdapter.differ.submitList(it.data!!.postList)
+                    postsAdapter.differ.submitList(it.data!!)
                 }
 
                 RepositoryStatus.LOADING -> {
