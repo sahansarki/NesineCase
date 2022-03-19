@@ -21,7 +21,7 @@ class PostsRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.bind(differ.currentList[position])
+        holder.bind(differ.currentList[position], position)
     }
 
     companion object {
