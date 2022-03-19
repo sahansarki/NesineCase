@@ -11,7 +11,8 @@ data class Post(
     @SerializedName("id")
     val id: Int,
     @SerializedName("title")
-    val title: String,
+    var title: String,
     @SerializedName("body")
-    val body: String
+    var body: String,
+    var url: String = ""
 ): Parcelable
