@@ -28,9 +28,9 @@ class PostsRecyclerAdapter(
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Post>() {
-            override fun areItemsTheSame(oldItem: Post, newItem: Post) = oldItem == newItem
-            override fun areContentsTheSame(oldItem: Post, newItem: Post) =
-                oldItem.id == newItem.id
+            override fun areItemsTheSame(oldItem: Post, newItem: Post) = oldItem.id == newItem.id
+            override fun areContentsTheSame(oldItem: Post, newItem: Post) = oldItem == newItem
         }
     }
 }
+
