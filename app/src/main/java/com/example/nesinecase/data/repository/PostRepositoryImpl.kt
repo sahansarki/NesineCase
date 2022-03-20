@@ -9,14 +9,14 @@ import javax.inject.Inject
 
 class PostRepositoryImpl @Inject constructor(
     private val postAPI: PostAPI
-): PostRepository {
+) : PostRepository {
 
     override suspend fun getAllPosts(): DataHolder<PostResponse> {
         return try {
             val response = postAPI.getAllPosts()
             DataHolder.success(response)
-        } catch(e: Exception) {
-            DataHolder.error(NesineError(e.localizedMessage),null)
+        } catch (e: Exception) {
+            DataHolder.error(NesineError(e.localizedMessage), null)
         }
     }
 }

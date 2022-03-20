@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment<D: ViewDataBinding>(
+abstract class BaseFragment<D : ViewDataBinding>(
     private val inflateLayout: (LayoutInflater, ViewGroup?, Boolean) -> D
-): Fragment(){
+) : Fragment() {
 
 
     private var _fragmentDataBinding: D? = null

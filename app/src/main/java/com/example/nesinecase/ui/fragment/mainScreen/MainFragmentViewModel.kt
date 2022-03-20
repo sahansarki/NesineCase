@@ -16,16 +16,17 @@ import javax.inject.Inject
 @HiltViewModel
 class MainFragmentViewModel @Inject constructor(
     @PostRepositoryImpl private val postRepository: PostRepository
-): BaseViewModel() {
+) : BaseViewModel() {
 
-    private val mutablePostList =  MutableLiveData<DataHolder<PostResponse>>()
+    private val mutablePostList = MutableLiveData<DataHolder<PostResponse>>()
     val postList: LiveData<DataHolder<PostResponse>>
         get() = mutablePostList
 
     init {
         mutablePostList.value = DataHolder.loading()
     }
-    fun getAllPosts(){
+
+    fun getAllPosts() {
         viewModelScope.launch(Dispatchers.Main) {
             mutablePostList.value = postRepository.getAllPosts()
         }

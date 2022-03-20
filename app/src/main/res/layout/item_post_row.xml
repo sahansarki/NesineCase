@@ -15,12 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:padding="10dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         app:strokeColor="@color/black"
-        app:strokeWidth="1dp"
-        android:padding="10dp"
-        >
+        app:strokeWidth="1dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

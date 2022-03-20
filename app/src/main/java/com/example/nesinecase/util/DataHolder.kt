@@ -2,7 +2,11 @@ package com.example.nesinecase.util
 
 import com.example.nesinecase.enum.RepositoryStatus
 
-class DataHolder<out T> private constructor(val status: RepositoryStatus, val data: T?, val error: NesineError?) {
+class DataHolder<out T> private constructor(
+    val status: RepositoryStatus,
+    val data: T?,
+    val error: NesineError?
+) {
 
     companion object {
 
