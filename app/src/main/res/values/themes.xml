@@ -21,10 +21,10 @@
     </style>
 
     <style name="Widget.BottomSheet" parent="Widget.MaterialComponents.BottomSheet">
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay</item>
+        <item name="shapeAppearanceOverlay">@style/MyShapeAppearanceOverlay</item>
     </style>
 
-    <style name="ShapeAppearanceOverlay" parent="">
+    <style name="MyShapeAppearanceOverlay" parent="">
         <item name="cornerSize">16dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
