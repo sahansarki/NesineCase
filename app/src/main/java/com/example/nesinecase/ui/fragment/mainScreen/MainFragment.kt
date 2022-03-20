@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nesinecase.R
+import com.example.nesinecase.data.model.Post
 import com.example.nesinecase.databinding.FragmentMainBinding
 import com.example.nesinecase.enum.RepositoryStatus
 import com.example.nesinecase.extension.dismissProgress
@@ -27,16 +28,18 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        postsAdapter = PostsRecyclerAdapter{
-            val bottomSheet = DetailBottomSheetFragment(it){
-                val postList = postsAdapter.differ.currentList
+        postsAdapter = PostsRecyclerAdapter{ clickedItem ->
+            val bottomSheet = DetailBottomSheetFragment(clickedItem){ clickedPost ->
 
-                postList.forEach { post ->
-                    if(post.id == it.id){
-                        post.title = it.title
-                        post.body = it.body
+                val postList = mutableListOf<Post>()
+
+                postsAdapter.differ.currentList.toMutableList().map { post ->
+                    val localPost = post.copy()
+                    if(localPost.id == clickedPost.id){
+                        localPost.title = clickedPost.title
+                        localPost.body = clickedPost.body
                     }
-
+                    postList.add(localPost)
                 }
                 postsAdapter.differ.submitList(postList)
             }
@@ -77,7 +80,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
 
                 RepositoryStatus.ERROR -> {
                     requireContext().dismissProgress()
-                    Toast.makeText(requireContext(),"ERROR",Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(),it.error!!.message,Toast.LENGTH_LONG).show()
                 }
             }
         }
