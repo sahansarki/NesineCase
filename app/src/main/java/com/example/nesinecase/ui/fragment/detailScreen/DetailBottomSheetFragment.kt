@@ -42,13 +42,15 @@ class DetailBottomSheetFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bottomSheetBinding.post = post
-        bottomSheetBinding.postImage.loadImage(post.url)
+
+        val localPost = post.copy()
+        bottomSheetBinding.post = localPost
+        bottomSheetBinding.postImage.loadImage(localPost.url!!)
 
         bottomSheetBinding.updateButton.setOnClickListener {
-            post.title = bottomSheetBinding.postTitle.text.toString()
-            post.body = bottomSheetBinding.postBody.text.toString()
-            updateCallback(post)
+            localPost.title = bottomSheetBinding.postTitle.text.toString()
+            localPost.body = bottomSheetBinding.postBody.text.toString()
+            updateCallback(localPost)
             this@DetailBottomSheetFragment.dismiss()
         }
 
