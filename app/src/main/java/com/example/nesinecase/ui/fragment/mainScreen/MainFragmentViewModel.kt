@@ -27,7 +27,7 @@ class MainFragmentViewModel @Inject constructor(
     }
     fun getAllPosts(){
         viewModelScope.launch(Dispatchers.Main) {
-            mutablePostList.value = DataHolder.success(postRepository.getAllPosts())
+            mutablePostList.value = postRepository.getAllPosts()
         }
     }
 }
