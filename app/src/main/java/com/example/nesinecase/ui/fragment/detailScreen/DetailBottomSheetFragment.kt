@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.navArgs
 import com.example.nesinecase.R
 import com.example.nesinecase.data.model.Post
 import com.example.nesinecase.databinding.FragmentDetailBottomSheetBinding
