@@ -15,10 +15,9 @@
 
         <ImageView
             android:id="@+id/postImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_margin="10dp"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
@@ -32,6 +31,7 @@
             android:maxLines="1"
             android:text="@{post.title}"
             android:textSize="13sp"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/postImage"
             app:layout_constraintTop_toTopOf="@id/postImage"
@@ -46,6 +46,7 @@
             android:maxLines="2"
             android:text="@{post.body}"
             android:textSize="13sp"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="@id/postImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/postImage"
@@ -58,6 +59,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
             android:text="UPDATE"
+            android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/postBody"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
