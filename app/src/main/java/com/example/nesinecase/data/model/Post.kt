@@ -14,5 +14,5 @@ data class Post(
     var title: String,
     @SerializedName("body")
     var body: String,
-    var url: String = ""
+    var url: String? = null
 ): Parcelable
