@@ -51,6 +51,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
             )
 
         }
+        fragmentDataBinding.mainRefreshLayout.setOnRefreshListener {
+            mainFragmentViewModel.getAllPosts()
+            fragmentDataBinding.mainRefreshLayout.isRefreshing = false
+        }
 
         val swipeGesture = object : SwipeToDeleteCallback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
