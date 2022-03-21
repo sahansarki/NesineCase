@@ -4,5 +4,5 @@ import com.example.nesinecase.data.response.PostResponse
 import com.example.nesinecase.util.DataHolder
 
 interface PostRepository {
-    suspend fun getAllPosts(): DataHolder<PostResponse>
+    fun getAllPosts(postList: (posts: DataHolder<PostResponse>) -> Unit)
 }
